@@ -1,16 +1,42 @@
 import React, { useState, useEffect } from "react";
 
 const shapes = [
-  [[1, 1]], // 2-block horizontal
-  [[1], [1], [1]], // 3-block vertical
+  [
+    [1, 1],
+    [0, 1],
+  ], // 2-block horizontal
   [
     [1, 1],
     [1, 1],
   ], // square
   [
+    [1, 1],
+    [1, 0],
+  ], // square
+  [
     [1, 0],
     [1, 1],
   ], // L shape
+  [
+    [0, 1],
+    [1, 1],
+  ], // reverse L shape
+  [
+    [1, 1, 1],
+    [0, 1, 0],
+  ], // T shape
+  [
+    [1, 1, 0],
+    [0, 1, 1],
+  ], // S shape
+  [
+    [0, 1, 1],
+    [1, 1, 0],
+  ], // Z shape
+  [
+    [1, 1, 1],
+    [0, 0, 1],
+  ], // 3-block horizontal
 ];
 
 function checkAndClear(board) {
@@ -58,7 +84,11 @@ function hasValidMove(board, pieces) {
   for (let piece of pieces) {
     for (let row = 0; row <= board.length - piece.length; row++) {
       for (let col = 0; col <= board[0].length - piece[0].length; col++) {
-        if (canPlaceShape(board, piece, row, col)) return true;
+        if (
+          !draggedShape ||
+          !canPlaceShape(board, draggedShape, dropRow, dropCol)
+        )
+          return;
       }
     }
   }
@@ -67,11 +97,13 @@ function hasValidMove(board, pieces) {
 
 const EasterEgg = () => {
   const [board, setBoard] = useState(
-    Array.from({ length: 10 }, () => Array(10).fill(0))
+    Array.from({ length: 5 }, () => Array(10).fill(0))
   );
   const [pieces, setPieces] = useState([]);
   const [draggedShape, setDraggedShape] = useState(null);
   const [gameOver, setGameOver] = useState(false);
+  const [hoveredCell, setHoveredCell] = useState(null);
+  const [gameStarted, setGameStarted] = useState(false);
 
   useEffect(() => {
     generateNewPieces();
@@ -125,56 +157,104 @@ const EasterEgg = () => {
 
   return (
     <div style={styles.container}>
-      <h2 style={{ textAlign: "center" }}>🎮 Easter Egg Puzzle</h2>
+      {/* Game blur wrapper */}
+      <div
+        style={{
+          ...styles.gameWrapper,
+          filter: !gameStarted ? "blur(4px)" : "none",
+          pointerEvents: !gameStarted ? "none" : "auto",
+        }}
+      >
+        <h2 style={{ textAlign: "center" }}>🎮 Easter Egg Puzzle</h2>
 
-      <div style={styles.board}>
-        {board.map((row, rowIndex) =>
-          row.map((cell, colIndex) => (
+        <div style={styles.board}>
+          {board.map((row, rowIndex) =>
+            row.map((cell, colIndex) => {
+              const isHovered =
+                hoveredCell &&
+                hoveredCell[0] === rowIndex &&
+                hoveredCell[1] === colIndex;
+
+              return (
+                <div
+                  key={`${rowIndex}-${colIndex}`}
+                  onDragOver={(e) => {
+                    e.preventDefault();
+                    if (
+                      draggedShape &&
+                      canPlaceShape(board, draggedShape, rowIndex, colIndex)
+                    ) {
+                      setHoveredCell([rowIndex, colIndex]);
+                    } else {
+                      setHoveredCell(null);
+                    }
+                  }}
+                  onDragLeave={() => setHoveredCell(null)}
+                  onDrop={(e) => handleDrop(e, rowIndex, colIndex)}
+                  style={{
+                    width: "30px",
+                    height: "30px",
+                    backgroundColor: cell
+                      ? "#007bff"
+                      : isHovered
+                      ? "#cce5ff"
+                      : "#fff",
+                    border: "1px solid #ccc",
+                  }}
+                />
+              );
+            })
+          )}
+        </div>
+
+        <div style={styles.pieceTray}>
+          {pieces.map((shape, i) => (
             <div
-              key={`${rowIndex}-${colIndex}`}
-              onDragOver={(e) => e.preventDefault()}
-              onDrop={(e) => handleDrop(e, rowIndex, colIndex)}
-              style={{
-                width: "30px",
-                height: "30px",
-                backgroundColor: cell ? "#007bff" : "#fff",
-                border: "1px solid #ccc",
-              }}
-            />
-          ))
+              key={i}
+              draggable
+              onDragStart={(e) => handleDragStart(e, shape)}
+              style={styles.piece}
+            >
+              {shape.map((row, rIdx) => (
+                <div key={rIdx} style={{ display: "flex" }}>
+                  {row.map((cell, cIdx) => (
+                    <div
+                      key={cIdx}
+                      style={{
+                        width: "20px",
+                        height: "20px",
+                        backgroundColor: cell ? "#007bff" : "transparent",
+                        border: cell ? "1px solid #333" : "1px dashed #ccc",
+                      }}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        {gameOver && (
+          <div style={{ textAlign: "center", marginTop: "20px", color: "red" }}>
+            <h3>🛑 Game Over! No more valid moves.</h3>
+          </div>
         )}
       </div>
 
-      <div style={styles.pieceTray}>
-        {pieces.map((shape, i) => (
-          <div
-            key={i}
-            draggable
-            onDragStart={(e) => handleDragStart(e, shape)}
-            style={styles.piece}
-          >
-            {shape.map((row, rIdx) => (
-              <div key={rIdx} style={{ display: "flex" }}>
-                {row.map((cell, cIdx) => (
-                  <div
-                    key={cIdx}
-                    style={{
-                      width: "20px",
-                      height: "20px",
-                      backgroundColor: cell ? "#007bff" : "transparent",
-                      border: cell ? "1px solid #333" : "1px dashed #ccc",
-                    }}
-                  />
-                ))}
-              </div>
-            ))}
+      {/* Overlay on top of gameWrapper */}
+      {!gameStarted && (
+        <div style={styles.overlay}>
+          <div style={styles.overlayContent}>
+            <h2 style={{ marginBottom: "20px", fontSize: "16px" }}>
+              🎉 Welcome to Easter Egg Puzzle
+            </h2>
+            <button
+              onClick={() => setGameStarted(true)}
+              style={styles.playButton}
+            >
+              Press to Play
+            </button>
           </div>
-        ))}
-      </div>
-
-      {gameOver && (
-        <div style={{ textAlign: "center", marginTop: "20px", color: "red" }}>
-          <h3>🛑 Game Over! No more valid moves.</h3>
         </div>
       )}
     </div>
@@ -183,12 +263,14 @@ const EasterEgg = () => {
 
 const styles = {
   container: {
+    position: "relative",
     padding: "20px",
     maxWidth: "400px",
     margin: "0 auto",
     backgroundColor: "#f8f8f8",
     borderRadius: "10px",
     boxShadow: "0 0 10px rgba(0,0,0,0.1)",
+    overflow: "hidden",
   },
   board: {
     display: "grid",
@@ -209,6 +291,60 @@ const styles = {
     backgroundColor: "#fff",
     border: "1px solid #ccc",
     cursor: "grab",
+  },
+  gameWrapper: {
+    position: "relative",
+  },
+  overlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    backdropFilter: "none", // optional
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 10,
+  },
+  overlayContent: {
+    textAlign: "center",
+    background: "white",
+    padding: "30px",
+    borderRadius: "12px",
+    boxShadow: "0 0 20px rgba(0,0,0,0.2)",
+  },
+
+  overlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    backdropFilter: "blur(6px)",
+    backgroundColor: "rgba(255, 255, 255, 0.6)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 100,
+  },
+
+  overlayContent: {
+    textAlign: "center",
+    background: "white",
+    padding: "12px",
+    borderRadius: "12px",
+    boxShadow: "0 0 20px rgba(0,0,0,0.2)",
+  },
+
+  playButton: {
+    padding: "7px 14px",
+    fontSize: "12px",
+    border: "none",
+    backgroundColor: "#007bff",
+    color: "#fff",
+    borderRadius: "8px",
+    cursor: "pointer",
   },
 };
 
