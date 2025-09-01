@@ -38,7 +38,12 @@ function ResumeNew() {
             className="flex justify-center items-center w-full"
             onLoadError={(err) => console.error("PDF load error:", err)}
           >
-            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
+            <Page
+              pageNumber={1}
+              scale={width > 786 ? 1.7 : 0.6}
+              renderTextLayer={false}
+              renderAnnotationLayer={false}
+            />
           </Document>
         </Row>
       </Container>
