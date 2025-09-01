@@ -32,7 +32,7 @@ function ResumeNew() {
           </Button>
         </Row>
 
-        <Row className="w-full flex justify-center">
+        <Row className="w-full flex justify-center m-0">
           <Document
             file={pdf}
             className="flex justify-center items-center w-full"
