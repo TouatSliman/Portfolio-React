@@ -48,7 +48,7 @@ function Home() {
         {/* Social Icons */}
         <div className="text-3xl flex gap-6 mt-4 mx-auto ">
           <a href="#" aria-label="Facebook">
-            <FaFacebook className="text-slate-400 hover:text-slate-300 transition duration-200" />
+            <FaFacebook className="text-slate-400 p-[2px] hover:text-slate-300 transition duration-200" />
           </a>
           <a href="#" aria-label="LinkedIn">
             <AiFillLinkedin className="text-slate-400 hover:text-slate-300 transition duration-200" />
