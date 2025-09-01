@@ -1,20 +1,21 @@
-import React from "react";
 import Particle from "../Particle";
 import ProjectCard from "./ProjectCards";
+import { Link } from "react-router-dom";
 
 import dzb from "../../Assets/Projects/dzb.png";
 import oe from "../../Assets/Projects/oe.png";
-import lawdz from "../../Assets/Projects/lawdz.png";
+import lawdzImg from "../../Assets/Projects/lawdz.png";
 import { FaArrowLeft } from "react-icons/fa6";
-import { Link } from "react-router-dom";
 import grid from "../../Assets/grid.png";
+import MouseHighlight from "../MouseHighlight";
 
 function Projects() {
   return (
-    <section className="relative bg-slate-900 text-slate-100 py-20 w-full">
+    <section className="relative bg-slate-900 text-slate-100 py-20 w-full overflow-hidden">
+      <MouseHighlight />
       {/* Grid Background Layer */}
       <div
-        className="absolute top-0 left-0 w-full h-full opacity-40 z-10"
+        className="absolute top-0 left-0 w-full h-full opacity-30 z-10"
         style={{
           backgroundImage: `url(${grid})`,
           backgroundSize: "contain",
@@ -22,27 +23,29 @@ function Projects() {
           backgroundPosition: "center",
         }}
       ></div>
+
       <Particle />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Heading */}
+      <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Back Link */}
         <Link
           to="/"
-          className="group inline-flex text-teal-300 items-center text-sm mb-4 transition-all no-underline w-40 text-right"
+          className="group inline-flex items-center text-sm text-teal-300 mb-6 no-underline transition-all w-fit"
         >
           <FaArrowLeft className="mr-1 transform transition-transform duration-300 group-hover:-translate-x-1" />
-          Sliman Touat
+          <span className="ml-1">Sliman Touat</span>
         </Link>
 
-        <h1 className="text-3xl sm:text-4xl font-bold text-left mb-4">
+        {/* Section Heading */}
+        <h1 className="text-3xl sm:text-4xl font-bold mb-2">
           My Recent <span className="text-teal-300">Works</span>
         </h1>
-        <p className="text-left text-slate-300 mb-12">
+        <p className="text-slate-300 mb-12 text-base sm:text-lg max-w-2xl">
           Here are a few projects I've worked on recently.
         </p>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           <ProjectCard
             imgPath={oe}
             title="Online Education"
@@ -58,7 +61,7 @@ function Projects() {
             tools={["nextjs", "tailwindcss"]}
           />
           <ProjectCard
-            imgPath={lawdz}
+            imgPath={lawdzImg}
             title="Lawdz"
             description="Lawdz is a web application designed to connect users with legal professionals for consultations and advice."
             demoLink="https://lawdz.onrender.com"
