@@ -31,7 +31,7 @@ function Home() {
       ></div>
 
       {/* Left Side Content */}
-      <div className="flex flex-col justify-start items-start text-slate-200 text-left pt-[15vh] md:pt-[20vh] px-6 md:pl-[5vw] md:h-[100vh] w-full lg:w-[30rem]  z-20">
+      <div className="flex flex-col justify-start items-start text-slate-200 text-left pt-[5vh] md:pt-[20vh] px-6 md:pl-[5vw] md:h-[100vh] w-full lg:w-[30rem]  z-20">
         <Type />
         <h2 className="text-4xl md:text-[3.2rem] font-bold tracking-tight -tracking-[3px]">
           Sliman Touat
