@@ -64,7 +64,7 @@ function Home() {
 
       {/* Right Side Image & Background */}
       <div
-        className="z-10 w-full lg:w-1/2 h-full lg:h-screen flex justify-center items-end bg-no-repeat bg-center bg-contain mt-10 lg:mt-0"
+        className="z-10 w-full lg:w-1/2 h-full lg:h-screen flex justify-center items-end bg-no-repeat bg-center bg-contain mt-10 lg:mt-0 md:pb-20"
         style={{ backgroundImage: `url(${stackBackground})` }}
       >
         <img
