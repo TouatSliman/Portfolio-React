@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FaPlay } from "react-icons/fa6";
 
 const shapes = [
   [
@@ -165,8 +166,6 @@ const EasterEgg = () => {
           pointerEvents: !gameStarted ? "none" : "auto",
         }}
       >
-        <h2 style={{ textAlign: "center" }}>🎮 Easter Egg Puzzle</h2>
-
         <div style={styles.board}>
           {board.map((row, rowIndex) =>
             row.map((cell, colIndex) => {
@@ -195,9 +194,9 @@ const EasterEgg = () => {
                     width: "30px",
                     height: "30px",
                     backgroundColor: cell
-                      ? "#007bff"
+                      ? "#0f0f0f"
                       : isHovered
-                      ? "#cce5ff"
+                      ? "#df9e9eff"
                       : "#fff",
                     border: "1px solid #ccc",
                   }}
@@ -223,7 +222,7 @@ const EasterEgg = () => {
                       style={{
                         width: "20px",
                         height: "20px",
-                        backgroundColor: cell ? "#007bff" : "transparent",
+                        backgroundColor: cell ? "#0f0f0f" : "transparent",
                         border: cell ? "1px solid #333" : "1px dashed #ccc",
                       }}
                     />
@@ -245,15 +244,30 @@ const EasterEgg = () => {
       {!gameStarted && (
         <div style={styles.overlay}>
           <div style={styles.overlayContent}>
-            <h2 style={{ marginBottom: "20px", fontSize: "16px" }}>
-              🎉 Welcome to Easter Egg Puzzle
+            <h2
+              style={{
+                marginBottom: "10px",
+                fontSize: "20px",
+                textAlign: "left",
+              }}
+            >
+              Press
             </h2>
             <button
               onClick={() => setGameStarted(true)}
               style={styles.playButton}
             >
-              Press to Play
+              <FaPlay size={20} />
             </button>
+            <h2
+              style={{
+                marginTop: "10px",
+                fontSize: "20px",
+                textAlign: "right",
+              }}
+            >
+              Play
+            </h2>
           </div>
         </div>
       )}
@@ -267,7 +281,7 @@ const styles = {
     padding: "20px",
     maxWidth: "400px",
     margin: "0 auto",
-    backgroundColor: "#f8f8f8",
+    backgroundColor: "#eee",
     borderRadius: "10px",
     boxShadow: "0 0 10px rgba(0,0,0,0.1)",
     overflow: "hidden",
@@ -295,25 +309,6 @@ const styles = {
   gameWrapper: {
     position: "relative",
   },
-  overlay: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    backdropFilter: "none", // optional
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 10,
-  },
-  overlayContent: {
-    textAlign: "center",
-    background: "white",
-    padding: "30px",
-    borderRadius: "12px",
-    boxShadow: "0 0 20px rgba(0,0,0,0.2)",
-  },
 
   overlay: {
     position: "absolute",
@@ -326,11 +321,12 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    zIndex: 100,
+    zIndex: 10,
   },
 
   overlayContent: {
     textAlign: "center",
+    width: "40%",
     background: "white",
     padding: "12px",
     borderRadius: "12px",
@@ -340,8 +336,9 @@ const styles = {
   playButton: {
     padding: "7px 14px",
     fontSize: "12px",
+    fontWeight: "bold",
     border: "none",
-    backgroundColor: "#007bff",
+    backgroundColor: "#0f0f0f",
     color: "#fff",
     borderRadius: "8px",
     cursor: "pointer",
