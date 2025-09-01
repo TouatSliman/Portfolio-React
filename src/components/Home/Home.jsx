@@ -21,7 +21,7 @@ function Home() {
 
       {/* Grid Background Layer */}
       <div
-        className="absolute top-0 left-0 w-full h-full opacity-30 z-10"
+        className="absolute top-0 left-0 w-full h-full opacity-40 z-10"
         style={{
           backgroundImage: `url(${grid})`,
           backgroundSize: "contain",
