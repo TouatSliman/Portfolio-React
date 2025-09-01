@@ -6,8 +6,7 @@ import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
 import pdfjsWorker from "pdfjs-dist/build/pdf.worker?url";
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
-import "./AnnotationLayer.css"; // Optional
-import "./ResumeNew.css"; // Custom styles for ResumeNew component
+import grid from "../../Assets/grid.png";
 
 function ResumeNew() {
   const [width, setWidth] = useState(1200);
@@ -19,6 +18,17 @@ function ResumeNew() {
 
   return (
     <div className="bg-slate-900 text-slate-200 min-h-screen flex flex-col items-center justify-center">
+      {/* Grid Background Layer */}
+      <div
+        className="absolute top-0 left-0 w-full h-full opacity-40 z-10"
+        style={{
+          backgroundImage: `url(${grid})`,
+          backgroundSize: "contain",
+          backgroundRepeat: "repeat-y",
+          backgroundPosition: "center",
+        }}
+      ></div>
+
       <Container fluid className="resume-section">
         <Particle />
         <Row style={{ justifyContent: "center", position: "relative" }}>
