@@ -18,7 +18,7 @@ function ResumeNew() {
   }, []);
 
   return (
-    <div>
+    <div className="bg-slate-900 text-slate-200 min-h-screen flex flex-col items-center justify-center">
       <Container fluid className="resume-section">
         <Particle />
         <Row style={{ justifyContent: "center", position: "relative" }}>
@@ -26,33 +26,20 @@ function ResumeNew() {
             variant="primary"
             href={pdf}
             target="_blank"
-            style={{ maxWidth: "250px" }}
+            className="mb-10 w-12 h-12 flex justify-center items-center px-2 py-2 bg-slate-800/50 shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] backdrop-blur-sm rounded-full hover:bg-slate-700 transition fixed bottom-0 right-0 mr-5 sm:mr-30"
           >
-            <AiOutlineDownload />
-            &nbsp;Download CV
+            <AiOutlineDownload size={24} />
           </Button>
         </Row>
 
-        <Row className="resume">
+        <Row className="w-full flex justify-center">
           <Document
             file={pdf}
-            className="d-flex justify-content-center"
+            className="flex justify-center items-center w-full"
             onLoadError={(err) => console.error("PDF load error:", err)}
           >
             <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
           </Document>
-        </Row>
-
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
-          >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
         </Row>
       </Container>
     </div>
