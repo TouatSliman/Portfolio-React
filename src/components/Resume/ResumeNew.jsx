@@ -1,26 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Particle from "../Particle";
-import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
 import pdfjsWorker from "pdfjs-dist/build/pdf.worker?url";
-pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
+import Particle from "../Particle";
+import { AiOutlineDownload } from "react-icons/ai";
+import { FaArrowLeft } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+
 import grid from "../../Assets/grid.png";
+
+pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 function ResumeNew() {
   const [width, setWidth] = useState(1200);
-  const pdf = "cv.pdf"; // Replace with your PDF URL
+  const pdf = "cv.pdf";
 
   useEffect(() => {
     setWidth(window.innerWidth);
   }, []);
 
   return (
-    <div className="bg-slate-900 text-slate-200 min-h-screen flex flex-col items-center justify-center">
+    <div className="relative bg-slate-900 text-slate-100 min-h-screen flex flex-col items-center justify-center px-4">
       {/* Grid Background Layer */}
       <div
-        className="absolute top-0 left-0 w-full h-full opacity-40 z-10"
+        className="absolute top-0 left-0 w-full h-full opacity-30 z-0"
         style={{
           backgroundImage: `url(${grid})`,
           backgroundSize: "contain",
@@ -29,34 +31,44 @@ function ResumeNew() {
         }}
       ></div>
 
-      <Container fluid className="resume-section">
-        <Particle />
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            className="mb-10 w-12 h-12 flex justify-center items-center px-2 py-2 bg-slate-800/50 shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] backdrop-blur-sm rounded-full hover:bg-slate-700 transition fixed bottom-0 right-0 mr-5 sm:mr-30"
-          >
-            <AiOutlineDownload size={24} />
-          </Button>
-        </Row>
+      {/* Particle Background */}
+      <Particle />
 
-        <Row className="w-full flex justify-center m-0">
-          <Document
-            file={pdf}
-            className="flex justify-center items-center w-full"
-            onLoadError={(err) => console.error("PDF load error:", err)}
-          >
-            <Page
-              pageNumber={1}
-              scale={width > 786 ? 1.7 : 0.6}
-              renderTextLayer={false}
-              renderAnnotationLayer={false}
-            />
-          </Document>
-        </Row>
-      </Container>
+      {/* Return Link */}
+      <Link
+        to="/"
+        className="group no-underline fixed top-6 left-6 sm:top-8 sm:left-10 z-30 text-teal-300 text-sm inline-flex items-center hover:text-teal-200 transition"
+      >
+        <FaArrowLeft className="mr-2 transition-transform duration-300 group-hover:-translate-x-1" />
+        <span className="font-medium">Sliman Touat</span>
+      </Link>
+
+      {/* PDF Display */}
+      <div className="relative z-20 w-full flex justify-center items-center pt-20 pb-16">
+        <Document
+          file={pdf}
+          onLoadError={(err) => console.error("PDF load error:", err)}
+          className="flex justify-center"
+        >
+          <Page
+            pageNumber={1}
+            scale={width > 1024 ? 1.6 : width > 768 ? 1.1 : 0.6}
+            renderTextLayer={false}
+            renderAnnotationLayer={false}
+          />
+        </Document>
+      </div>
+
+      {/* Download Button */}
+      <a
+        href={pdf}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-30 bg-slate-800/50 text-teal-300 hover:bg-slate-700 hover:text-white transition shadow-lg backdrop-blur-md rounded-full p-3"
+        title="Download CV"
+      >
+        <AiOutlineDownload size={24} />
+      </a>
     </div>
   );
 }
