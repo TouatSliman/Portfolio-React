@@ -12,13 +12,13 @@ function About() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-16 font-sans text-slate-400 bg-[#0F172A]">
       {/* Back Link */}
-        <Link
-          to="/"
-          className="group inline-flex items-center text-sm text-teal-300 mb-6 no-underline transition-all w-fit"
-        >
-          <FaArrowLeft className="mr-1 transform transition-transform duration-300 group-hover:-translate-x-1" />
-          <span className="ml-1">Sliman Touat</span>
-        </Link>
+      <Link
+        to="/"
+        className="group inline-flex items-center text-sm text-teal-300 mb-6 no-underline transition-all w-fit"
+      >
+        <FaArrowLeft className="mr-1 transform transition-transform duration-300 group-hover:-translate-x-1" />
+        <span className="ml-1">Sliman Touat</span>
+      </Link>
       {/* Header Section */}
       <div className="text-center mb-16">
         <h1 className="text-5xl md:text-6xl font-bold text-teal-300 mb-4">
@@ -35,7 +35,7 @@ function About() {
           <h2 className="text-3xl font-semibold text-slate-200 mb-6">
             Background
           </h2>
-          <p className="text-lg leading-relaxed text-justify">
+          <p className="text-sm md:text-lg leading-relaxed text-justify">
             Hello! I'm a passionate network security engineer from Sidi Bel
             Abbès, Algeria, with a strong background in electrical engineering
             transitioning into cybersecurity. I specialize in network
@@ -128,7 +128,7 @@ function About() {
           <h2 className="text-3xl font-semibold text-slate-200 mb-6">
             CTF & Competitions
           </h2>
-          <p className="text-lg leading-relaxed text-justify">
+          <p className="text-sm md:text-lg leading-relaxed text-justify">
             I actively participate in Capture The Flag competitions, where I've
             achieved notable rankings including a 4th place finish. These
             competitions have sharpened my problem-solving skills and deepened
@@ -141,7 +141,7 @@ function About() {
           <h2 className="text-3xl font-semibold text-slate-200 mb-6">
             Beyond Tech
           </h2>
-          <p className="text-lg leading-relaxed text-justify">
+          <p className="text-sm md:text-lg leading-relaxed text-justify">
             When I'm not coding or analyzing networks, you'll find me training
             in boxing and MMA. These sports have taught me discipline,
             perseverance, and strategic thinking - qualities that translate
@@ -154,7 +154,7 @@ function About() {
           <h2 className="text-3xl font-semibold text-slate-200 mb-6">
             Goals & Vision
           </h2>
-          <p className="text-lg leading-relaxed text-justify">
+          <p className="text-sm md:text-lg leading-relaxed text-justify">
             I'm committed to building a career that bridges the gap between
             network infrastructure and cybersecurity. My goal is to help
             organizations build secure, scalable networks while contributing to
@@ -167,7 +167,7 @@ function About() {
           <h2 className="text-3xl font-semibold text-teal-300 mb-6">
             Let's Connect
           </h2>
-          <p className="text-lg mb-8 leading-relaxed">
+          <p className="text-sm md:text-lg mb-8 leading-relaxed">
             I'm always open to discussing new opportunities, collaborating on
             projects, or sharing knowledge about networking and cybersecurity.
           </p>
