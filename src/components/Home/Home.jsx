@@ -37,26 +37,36 @@ function Home() {
           <h2 className="text-4xl md:text-[3.2rem] font-bold tracking-tight -tracking-[3px]">
             Sliman Touat
           </h2>
-          <h3 className="text-base mt-1 text-lg text-slate-300">
-            Full Stack Developer
+          <h3 className="text-base mt-1 text-sm text-slate-300">
+            Network Security Engineer | CTF Competitor | Tech Enthusiast
           </h3>
-          <p className="pt-4 max-w-xl text-sm leading-6 text-slate-400">
-            Building fast, scalable web apps with modern technologies.
+          <p className="pt-4 max-w-xl text-xs leading-6 text-slate-400">
+            Combining full-stack development skills with deep networking
+            knowledge to deliver comprehensive security solutions.
           </p>
         </div>
 
         {/* Social Icons */}
         <div className="text-3xl flex gap-6 mt-4 mx-auto ">
-          <a href="#" aria-label="Facebook">
+          <a
+            href="https://www.facebook.com/Touat.Sliman.Mustapha"
+            aria-label="Facebook"
+          >
             <FaFacebook className="text-slate-400 p-[2px] hover:text-slate-300 transition duration-200" />
           </a>
-          <a href="#" aria-label="LinkedIn">
+          <a
+            href="https://dz.linkedin.com/in/mustapha-touat"
+            aria-label="LinkedIn"
+          >
             <AiFillLinkedin className="text-slate-400 hover:text-slate-300 transition duration-200" />
           </a>
-          <a href="#" aria-label="GitHub">
+          <a href="https://github.com/touatsliman" aria-label="GitHub">
             <AiFillGithub className="text-slate-400 hover:text-slate-300 transition duration-200" />
           </a>
-          <a href="#" aria-label="Instagram">
+          <a
+            href="https://www.instagram.com/touat.sliman/"
+            aria-label="Instagram"
+          >
             <AiFillInstagram className="text-slate-400 hover:text-slate-300 transition duration-200" />
           </a>
         </div>
