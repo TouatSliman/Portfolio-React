@@ -50,10 +50,10 @@ function About() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
             <div className=" p-6 transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-teal-300 mb-4">
+              <h3 className="text-sm md:text-xl font-semibold text-teal-300 mb-4">
                 Networking & Security
               </h3>
-              <ul className="space-y-3">
+              <ul className="text-xs md:text-sm space-y-3">
                 <li className="flex items-center">
                   <span className="text-teal-300 mr-3">▶</span>
                   Network Infrastructure Design
@@ -74,10 +74,10 @@ function About() {
             </div>
 
             <div className=" p-6 transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-teal-300 mb-4">
+              <h3 className="text-sm md:text-xl font-semibold text-teal-300 mb-4">
                 Development
               </h3>
-              <ul className="space-y-3">
+              <ul className="text-xs md:text-sm space-y-3">
                 <li className="flex items-center">
                   <span className="text-teal-300 mr-3">▶</span>
                   Full-Stack Development
@@ -98,10 +98,10 @@ function About() {
             </div>
 
             <div className=" p-6 transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-teal-300 mb-4">
+              <h3 className="text-sm md:text-xl font-semibold text-teal-300 mb-4">
                 Cybersecurity
               </h3>
-              <ul className="space-y-3">
+              <ul className="text-xs md:text-sm space-y-3">
                 <li className="flex items-center">
                   <span className="text-teal-300 mr-3">▶</span>
                   Penetration Testing
