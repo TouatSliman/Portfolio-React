@@ -16,35 +16,37 @@ import {
 import ScrollToTop from "./components/ScrollToTop";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NotFound from "./components/NotFound/NotFound";
+import "./App.css"
 
 function AppContent() {
-  const [load, updateLoad] = useState(true);
+  const [load, setLoad] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      updateLoad(false);
+      setLoad(false);
+      document.body.style.overflow = "auto"; // Enable scroll
     }, 1200);
 
+    document.body.style.overflow = "hidden"; // Disable scroll while loading
     return () => clearTimeout(timer);
   }, []);
-
-  // Hide Navbar and Footer on /404
-  const hideNavAndFooter = location.pathname === "/404";
 
   return (
     <>
       <Preloader load={load} />
-      <div className="App bg-[#0F172A]" id={load ? "no-scroll" : "scroll"}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/404" element={<NotFound />} />
-          <Route path="*" element={<Navigate to="/404" replace />} />
-        </Routes>
-      </div>
+      {!load && (
+        <div className="App bg-[#0F172A]">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/404" element={<NotFound />} />
+            <Route path="*" element={<Navigate to="/404" replace />} />
+          </Routes>
+        </div>
+      )}
     </>
   );
 }

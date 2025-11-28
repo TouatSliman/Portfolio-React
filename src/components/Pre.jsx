@@ -1,6 +1,11 @@
-import React from "react";
-function Pre(props) {
-  return <div id={props.load ? "preloader" : "preloader-none"}></div>;
+export default function Preloader({ load }) {
+  return (
+    <div className={`preloader ${load ? "show" : "hide"}`}>
+      <div className="dots">
+        <span>.</span>
+        <span>.</span>
+        <span>.</span>
+      </div>
+    </div>
+  );
 }
-
-export default Pre;
