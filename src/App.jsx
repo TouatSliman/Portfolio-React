@@ -26,7 +26,7 @@ function AppContent() {
     const timer = setTimeout(() => {
       setLoad(false);
       document.body.style.overflow = "auto"; // Enable scroll
-    }, 1200);
+    }, 2900);
 
     document.body.style.overflow = "hidden"; // Disable scroll while loading
     return () => clearTimeout(timer);
