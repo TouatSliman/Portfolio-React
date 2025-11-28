@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import Type from "./Type";
 import MouseHighlight from "../MouseHighlight";
 import grid from "../../Assets/grid.png";
-import stackBackground from "../../Assets/stackBackground.png";
+import stackBackground from "../../Assets/stackBackground.webp";
 import cStudent from "../../Assets/cstudent.png";
 
 function Home() {
