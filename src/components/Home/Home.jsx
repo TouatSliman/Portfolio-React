@@ -38,7 +38,8 @@ function Home() {
             Sliman Touat
           </h2>
           <h3 className="text-base mt-1 text-sm text-slate-300">
-            Network Security Engineer | CTF Competitor | Tech Enthusiast
+            Full-Stack Developer | Computer Science Student | Tech Enthusiast |
+            CTF Competitor
           </h3>
           <p className="pt-4 max-w-xl text-xs leading-6 text-slate-400">
             Combining full-stack development skills with deep networking

@@ -24,8 +24,9 @@ function About() {
         <h1 className="text-5xl md:text-6xl font-bold text-teal-300 mb-4">
           About Me
         </h1>
-        <div className="text-xl md:text-2xl text-slate-200 font-semibold">
-          Network Security Engineer | CTF Competitor | Tech Enthusiast
+        <div className="text-md md:text-xl text-slate-200 font-semibold">
+          Full-Stack Developer | Computer Science Student | Tech Enthusiast |
+          CTF Competitor
         </div>
       </div>
 
@@ -36,10 +37,9 @@ function About() {
             Background
           </h2>
           <p className="text-sm md:text-lg leading-relaxed text-justify">
-            Hello! I'm a passionate network security engineer from Sidi Bel
-            Abbès, Algeria, with a strong background in electrical engineering
-            transitioning into cybersecurity. I specialize in network
-            infrastructure, VPN configurations, and security analysis.
+            Hello! I'm a passionate full stack developer from Sidi Bel Abbès,
+            Algeria, with a strong background in software development, focusing
+            on building responsive and user-friendly web applications.
           </p>
         </div>
 
@@ -49,88 +49,85 @@ function About() {
             Technical Expertise
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-            <div className=" p-6 transition-shadow duration-300">
+            <div className="p-6 transition-shadow duration-300">
               <h3 className="text-sm md:text-xl font-semibold text-teal-300 mb-4">
-                Networking & Security
+                Frontend & UI
               </h3>
               <ul className="text-xs md:text-sm space-y-3">
                 <li className="flex items-center">
                   <span className="text-teal-300 mr-3">▶</span>
-                  Network Infrastructure Design
+                  React (Hooks, Context, Suspense)
                 </li>
                 <li className="flex items-center">
                   <span className="text-teal-300 mr-3">▶</span>
-                  VPN Configuration & Management
+                  TypeScript & modern ESNext
                 </li>
                 <li className="flex items-center">
                   <span className="text-teal-300 mr-3">▶</span>
-                  Firewall Administration
+                  TailwindCSS / CSS Modules / Responsive design
                 </li>
                 <li className="flex items-center">
                   <span className="text-teal-300 mr-3">▶</span>
-                  Security Auditing
+                  Accessibility & performance optimization
                 </li>
               </ul>
             </div>
 
-            <div className=" p-6 transition-shadow duration-300">
+            <div className="p-6 transition-shadow duration-300">
               <h3 className="text-sm md:text-xl font-semibold text-teal-300 mb-4">
-                Development
+                Backend & APIs
               </h3>
               <ul className="text-xs md:text-sm space-y-3">
                 <li className="flex items-center">
                   <span className="text-teal-300 mr-3">▶</span>
-                  Full-Stack Development
+                  Node.js (Express, Nest) & Python basics
                 </li>
                 <li className="flex items-center">
                   <span className="text-teal-300 mr-3">▶</span>
-                  Python Automation
+                  RESTful APIs & GraphQL
                 </li>
                 <li className="flex items-center">
                   <span className="text-teal-300 mr-3">▶</span>
-                  API Development
+                  SQL (Postgres) & NoSQL (MongoDB)
                 </li>
                 <li className="flex items-center">
                   <span className="text-teal-300 mr-3">▶</span>
-                  Database Management
+                  Authentication, Authorization & testing (Jest, Supertest)
                 </li>
               </ul>
             </div>
 
-            <div className=" p-6 transition-shadow duration-300">
+            <div className="p-6 transition-shadow duration-300">
               <h3 className="text-sm md:text-xl font-semibold text-teal-300 mb-4">
-                Cybersecurity
+                DevOps & Tooling
               </h3>
               <ul className="text-xs md:text-sm space-y-3">
                 <li className="flex items-center">
                   <span className="text-teal-300 mr-3">▶</span>
-                  Penetration Testing
+                  Git, GitHub Actions & CI/CD pipelines
                 </li>
                 <li className="flex items-center">
                   <span className="text-teal-300 mr-3">▶</span>
-                  CTF Competitions
+                  Docker & containerization fundamentals
                 </li>
                 <li className="flex items-center">
                   <span className="text-teal-300 mr-3">▶</span>
-                  Vulnerability Assessment
+                  AWS (S3, EC2, Lambda) & basic infra concepts
                 </li>
                 <li className="flex items-center">
                   <span className="text-teal-300 mr-3">▶</span>
-                  Incident Response
+                  Monitoring, logging, and security best practices
                 </li>
               </ul>
             </div>
           </div>
         </div>
-
-        {/* CTF & Competitions Section */}
         <div className="bg-slate-800/50 p-8 rounded-xl shadow-lg border-l-4 border-teal-300">
           <h2 className="text-3xl font-semibold text-slate-200 mb-6">
             CTF & Competitions
           </h2>
           <p className="text-sm md:text-lg leading-relaxed text-justify">
-            I actively participate in Capture The Flag competitions, where I've
-            achieved notable rankings including a 4th place finish. These
+            I actively participate in Capture The Flag competitions, These
             competitions have sharpened my problem-solving skills and deepened
             my understanding of cybersecurity challenges.
           </p>
@@ -142,8 +139,8 @@ function About() {
             Beyond Tech
           </h2>
           <p className="text-sm md:text-lg leading-relaxed text-justify">
-            When I'm not coding or analyzing networks, you'll find me training
-            in boxing and MMA. These sports have taught me discipline,
+            When I'm not coding, you'll find me training
+            in JUDO. This sport has taught me discipline,
             perseverance, and strategic thinking - qualities that translate
             perfectly into my technical work.
           </p>
