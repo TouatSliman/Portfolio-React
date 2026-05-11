@@ -50,7 +50,7 @@ function Home() {
         {/* Social Icons */}
         <div className="text-3xl flex gap-6 mt-4 mx-auto ">
           <a
-            href="https://www.facebook.com/Touat.Sliman.Mustapha"
+            href="https://www.facebook.com/slimane.tm"
             aria-label="Facebook"
           >
             <FaFacebook className="text-slate-400 p-[2px] hover:text-slate-300 transition duration-200" />
@@ -65,7 +65,7 @@ function Home() {
             <AiFillGithub className="text-slate-400 hover:text-slate-300 transition duration-200" />
           </a>
           <a
-            href="https://www.instagram.com/touat.sliman/"
+            href="https://www.instagram.com/slimane.tm/"
             aria-label="Instagram"
           >
             <AiFillInstagram className="text-slate-400 hover:text-slate-300 transition duration-200" />
