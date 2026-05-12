@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import dzb from "../../Assets/Projects/dzb.png";
 import oe from "../../Assets/Projects/oe.png";
 import lawdzImg from "../../Assets/Projects/lawdz.png";
+import dr from "../../Assets/Projects/dr.png";
+import ys from "../../Assets/Projects/ys.png";
 import { FaArrowLeft } from "react-icons/fa6";
 import grid from "../../Assets/grid.png";
 import MouseHighlight from "../MouseHighlight";
@@ -47,10 +49,17 @@ function Projects() {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           <ProjectCard
-            imgPath={oe}
-            title="Online Education"
-            description="Online Education is an application for online education in different fields."
-            demoLink="https://touatsliman.github.io/online-education"
+            imgPath={lawdzImg}
+            title="Lawdz"
+            description="Lawdz is a web application designed to connect users with legal professionals for consultations and advice."
+            demoLink="https://lawdz.onrender.com"
+            tools={["react", "tailwindcss", "express", "mongodb", "api"]}
+          />
+          <ProjectCard
+            imgPath={ys}
+            title="yadra Store"
+            description="Yadra Store is an real fastfood selling pizza and burgers."
+            demoLink="https://yadra-api.onrender.com"
             tools={["react", "tailwindcss"]}
           />
           <ProjectCard
@@ -61,11 +70,18 @@ function Projects() {
             tools={["nextjs", "tailwindcss"]}
           />
           <ProjectCard
-            imgPath={lawdzImg}
-            title="Lawdz"
-            description="Lawdz is a web application designed to connect users with legal professionals for consultations and advice."
-            demoLink="https://lawdz.onrender.com"
-            tools={["react", "tailwindcss", "express", "mongodb", "api"]}
+            imgPath={oe}
+            title="Online Education"
+            description="Online Education is an application for online education in different fields."
+            demoLink="https://touatsliman.github.io/online-education"
+            tools={["react", "tailwindcss"]}
+          />
+          <ProjectCard
+            imgPath={dr}
+            title="DocotoReach"
+            description="DocotoReach is a web application designed to connect users with healthcare professionals for consultations and advice."
+            demoLink="https://doctoreachfe.onrender.com/"
+            tools={["react", "tailwindcss"]}
           />
         </div>
       </div>

@@ -49,10 +49,7 @@ function Home() {
 
         {/* Social Icons */}
         <div className="text-3xl flex gap-6 mt-4 mx-auto ">
-          <a
-            href="https://www.facebook.com/slimane.tm"
-            aria-label="Facebook"
-          >
+          <a href="https://www.facebook.com/slimane.tm" aria-label="Facebook">
             <FaFacebook className="text-slate-400 p-[2px] hover:text-slate-300 transition duration-200" />
           </a>
           <a
@@ -73,16 +70,17 @@ function Home() {
         </div>
       </div>
 
-      {/* Right Side Image & Background */}
       <div
         className="z-10 w-full lg:w-1/2 h-full lg:h-screen flex justify-center items-end bg-no-repeat bg-center bg-contain mt-10 lg:mt-0 md:pb-20"
         style={{ backgroundImage: `url(${stackBackground})` }}
       >
-        <img
-          src={cStudent}
-          alt="home pic"
-          className="max-w-[70%] md:max-w-[60%] mx-auto z-20"
-        />
+        {/* Wrapper: image + shadow below it, stacked vertically*/}
+        <div className="relative flex flex-col items-center lg:mb-[-20px] md:mb-[-80px]  mb-0 max-w-[80%] md:max-w-[50%] lg:max-w-[58%] mx-auto z-20">
+          <img src={cStudent} alt="home pic" className="w-full" />
+
+          {/* Shadow fade div — sits BELOW the image, fades black → transparent upward */}
+          <div className="absolute bottom-0 left-0 w-full h-1/5 bg-gradient-to-t from-[#0F172A] to-transparent pointer-events-none" />
+        </div>
       </div>
 
       {/* Button Group (at bottom on large, below content on small) */}
