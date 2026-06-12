@@ -126,7 +126,7 @@ export default function About() {
 
       {/* Hero */}
       <header className="text-center mb-20">
-        <span className="inline-block text-xs uppercase tracking-widest text-teal-400 border border-teal-400/30 px-4 py-1 rounded-full mb-6">
+        <span className=" inline-block text-xs uppercase tracking-widest text-teal-400 border border-teal-400/30 px-4 py-1 rounded-full mb-6">
           About me
         </span>
         {/*
@@ -152,7 +152,7 @@ export default function About() {
             Algeria, with a strong background in software development — focused
             on building responsive, user-friendly web applications and exploring
             the intersection of networking and cybersecurity. <br />
-            oh i forgot to mention that i use  arch linux by the way 😀
+            oh i forgot to mention that i use arch linux by the way 😀
           </p>
         </SectionCard>
 

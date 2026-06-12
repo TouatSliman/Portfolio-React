@@ -20,6 +20,9 @@ function ResumeNew() {
 
   return (
     <div className="relative bg-slate-900 text-slate-100 min-h-screen flex flex-col items-center justify-center px-4">
+      <span className="mt-24 inline-block text-xs uppercase tracking-widest text-teal-400 border border-teal-400/30 px-4 py-1 rounded-full mb-6">
+        Resume
+      </span>
       {/* Grid Background Layer */}
       <div
         className="absolute top-0 left-0 w-full h-full opacity-30 z-0"
@@ -44,7 +47,7 @@ function ResumeNew() {
       </Link>
 
       {/* PDF Display */}
-      <div className="relative z-20 w-full flex justify-center items-center pt-20 pb-16">
+      <div className="relative z-20 w-full flex justify-center items-center pt-6 pb-16">
         <Document
           file={pdf}
           onLoadError={(err) => console.error("PDF load error:", err)}
